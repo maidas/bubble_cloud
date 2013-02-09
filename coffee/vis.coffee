@@ -19,7 +19,7 @@ Bubbles = () ->
   # I've abstracted the data value used to size each
   # into its own function. This should make it easy
   # to switch out the underlying dataset
-  rValue = (d) -> parseInt(d.Total)
+  rValue = (d) -> parseFloat(d.Total)
 
   # function to define the 'id' of a data element
   #  - used to bind the data uniquely to the force nodes
