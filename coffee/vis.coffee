@@ -406,6 +406,7 @@ root.plotData = (selector, data, plot) ->
 
 texts = [
   {key:"dec2012",file:"dec_2012.csv",name:"December 2012 Spending Categories"}
+  {key:"jan2013",file:"jan_2013.csv",name:"January 2013 Spending Categories"}
   {key:"all",file:"all_time.csv",name:"Contributors from All Time"}
 ]
 
