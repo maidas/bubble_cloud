@@ -19,19 +19,19 @@ Bubbles = () ->
   # I've abstracted the data value used to size each
   # into its own function. This should make it easy
   # to switch out the underlying dataset
-  rValue = (d) -> parseInt(d.count)
+  rValue = (d) -> parseInt(d.Total)
 
   # function to define the 'id' of a data element
   #  - used to bind the data uniquely to the force nodes
   #   and for url creation
   #  - should make it easier to switch out dataset
   #   for your own
-  idValue = (d) -> d.name
+  idValue = (d) -> d.Category
 
   # function to define what to display in each bubble
   #  again, abstracted to ease migration to 
   #  a different dataset if desired
-  textValue = (d) -> d.name
+  textValue = (d) -> d.Category
 
   # constants to control how
   # collision look and act
@@ -405,7 +405,7 @@ root.plotData = (selector, data, plot) ->
     .call(plot)
 
 texts = [
-  {key:"last",file:"last_year.csv",name:"Last Year of Contributors"}
+  {key:"dec2012",file:"dec_2012.csv",name:"December 2012 Spending Categories"}
   {key:"all",file:"all_time.csv",name:"Contributors from All Time"}
 ]
 
