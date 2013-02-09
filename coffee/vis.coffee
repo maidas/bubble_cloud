@@ -5,7 +5,7 @@ Bubbles = () ->
   # standard variables accessible to
   # the rest of the functions inside Bubbles
   width = 980
-  height = 510
+  height = 610
   data = []
   node = null
   label = null
@@ -405,10 +405,8 @@ root.plotData = (selector, data, plot) ->
     .call(plot)
 
 texts = [
-  {key:"sherlock",file:"top_sherlock.csv",name:"The Adventures of Sherlock Holmes"}
-  {key:"aesop",file:"top_aesop.csv",name:"Aesop's Fables"}
-  {key:"alice",file:"alice.csv",name:"Alice's Adventures in Wonderland"}
-  {key:"gulliver",file:"top_gulliver.csv",name:"Gulliver's Travels"}
+  {key:"last",file:"last_year.csv",name:"Last Year of Contributors"}
+  {key:"all",file:"all_time.csv",name:"Contributors from All Time"}
 ]
 
 # ---
@@ -427,8 +425,10 @@ $ ->
 
   # we are storing the current text in the search component
   # just to make things easy
-  key = decodeURIComponent(location.search).replace("?","")
+  key = decodeURIComponent(location.search).replace("?","").replace("/","")
+  console.log("key: " + key)
   text = texts.filter((t) -> t.key == key)[0]
+  console.log("text: " + text)
 
   # default to the first text if something gets messed up
   if !text
@@ -452,7 +452,7 @@ $ ->
       location.search = encodeURIComponent(key)
 
   # set the book title from the text name
-  d3.select("#book-title").html(text.name)
+  #d3.select("#book-title").html(text.name)
 
   # load our data
   d3.csv("data/#{text.file}", display)
